@@ -7,6 +7,15 @@ import { FooterComponent } from './components/footer/footer.component';
 import { PortafolioComponent } from './components/portafolio/portafolio.component';
 import { AboutComponent } from './components/about/about.component';
 import { ProductComponent } from './components/product/product.component';
+import { LoadingComponent } from './components/loading/loading.component'
+//rutas
+import{app_routing} from './components/app.routes'
+
+
+//servicios
+import {HttpModule} from '@angular/http';
+import{InformacionService} from './services/informacion.service'
+import{ProductosService} from './services/productos.service';
 
 @NgModule({
   declarations: [
@@ -15,12 +24,16 @@ import { ProductComponent } from './components/product/product.component';
     FooterComponent,
     PortafolioComponent,
     AboutComponent,
-    ProductComponent
+    ProductComponent,
+    LoadingComponent
+
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpModule,
+      app_routing
   ],
-  providers: [],
+  providers: [InformacionService,ProductosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
