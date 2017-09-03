@@ -4,11 +4,11 @@
         <div
 
         class="ae-masonry ae-masonry-md-2 ae-masonry-xl-4 animated fadeIn"
-            *ngIf="_ps.productos.length>0 || !_ps.cargandoProductos">
+            *ngIf="_ps.productosFiltrados.length>0 || !_ps.cargandoProductos">
 
 
           <a
-                *ngFor="let item of _ps.productos"
+                *ngFor="let item of _ps.productosFiltrados"
            [routerLink]="['/product',item.cod]"
           class="rk-item ae-masonry__item">
 
@@ -24,5 +24,9 @@
 
 
         </div>
+           <div class="animated fadeIn"
+               *ngIf="_ps.productosFiltrados.length===0 ">
 
+            {{_ps.sinResultadosBusqueda}}
+             </div>
     </section>
